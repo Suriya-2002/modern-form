@@ -1,0 +1,12 @@
+.background {
+    background-image: linear-gradient(to bottom right, $color-green-dark, $color-green-light);
+    border-radius: 50%;
+    box-shadow: $shadow-box;
+    width: 45rem;
+    height: 45rem;
+    opacity: 0.8;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

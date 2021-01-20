@@ -1,0 +1,47 @@
+.form {
+    background-image: linear-gradient(315deg, $color-green-light 0%, $color-green-dark 75%);
+    height: 100vh;
+    position: relative;
+    transition: all 1s ease;
+
+    &__group {
+        background-color: $color-white;
+        border-radius: 1rem;
+        box-shadow: $shadow-box;
+        height: 10rem;
+        min-width: 50vw;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: all 0.5s ease;
+    }
+
+    &__input {
+        font-size: 3.5rem;
+        border: none;
+        height: 100%;
+        outline: none;
+        flex-grow: 1;
+
+        &:placeholder-shown + .form__slide {
+            transform: translate(0.5rem, 0);
+        }
+
+        &::placeholder {
+            color: transparent;
+        }
+    }
+
+    &__slide {
+        font-size: 3.5rem;
+        font-weight: 700;
+        margin-left: 10rem;
+        position: absolute;
+        transform: translateY(-10rem) scale(1.3);
+        transition: all 0.5s ease;
+    }
+}
