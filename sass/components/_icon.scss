@@ -1,5 +1,6 @@
 .icon-container {
     height: 100%;
+    width: 11rem;
     padding: 0 3rem;
     display: flex;
     justify-content: center;
@@ -10,8 +11,10 @@
         transform: translateX(1.5rem);
     }
 
-    &:hover .icon--user {
-        transform: scale(1.2);
+    &:hover {
+        .icon--label {
+            transform: scale(1.2);
+        }
     }
 }
 
@@ -21,8 +24,5 @@
 
     &--back {
         font-size: 6rem;
-    }
-
-    &--arrow {
     }
 }

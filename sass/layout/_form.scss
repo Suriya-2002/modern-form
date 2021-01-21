@@ -14,11 +14,23 @@
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -50%);
         display: flex;
         justify-content: space-between;
         align-items: center;
         z-index: 4;
+        transition: all 0.5s;
+
+        &--active {
+            opacity: 1;
+            pointer-events: all;
+            transform: translate(-50%, -50%);
+        }
+
+        &--inactive {
+            opacity: 0;
+            pointer-events: none;
+            transform: translate(-30%, -50%) !important;
+        }
     }
 
     &__input {
