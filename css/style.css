@@ -100,14 +100,15 @@ body {
     height: 10rem;
     margin: 5rem;
     padding: 1rem 2rem;
+    text-transform: capitalize;
+    border-radius: 50%;
     position: absolute;
     top: 0;
     left: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 50%;
-    text-transform: capitalize; }
+    z-index: 5; }
     .btn--back:hover {
       background-color: #fff;
       box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.4);
@@ -122,6 +123,9 @@ body {
     font-size: 3.5rem;
     font-weight: 700;
     border-radius: 1rem; }
+  .btn--disable {
+    opacity: 0;
+    pointer-events: none; }
 
 .error-message {
   color: #fc575e;

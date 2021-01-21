@@ -1,7 +1,8 @@
 const form = document.querySelector('.form');
-const errorMessage = document.querySelector('.error-message');
+const backButton = document.querySelector('.btn--back');
 const background1 = document.querySelector('.background--1');
 const background2 = document.querySelector('.background--2');
+const errorMessage = document.querySelector('.error-message');
 
 document.addEventListener('mousemove', event => {
     document.querySelectorAll('.parallax').forEach(element => {
@@ -44,6 +45,27 @@ const init = () => {
             });
         });
     });
+
+    backButton.addEventListener('click', () => {
+        const currentInputGroup = document.querySelector('.form__group--active');
+
+        if (currentInputGroup.previousElementSibling != null) {
+            const previousInputGroup = currentInputGroup.previousElementSibling;
+
+            previousInputGroup.classList.remove('form__group--inactive');
+            previousInputGroup.classList.add('form__group--active');
+
+            currentInputGroup.classList.remove('form__group--active');
+            currentInputGroup.classList.add('form__group--inactive');
+
+            previousInputGroup.querySelector('.form__input').focus();
+
+            validData();
+            displayBackbutton();
+        }
+    });
+
+    displayBackbutton();
 };
 
 const nextSlide = (currentParent, nextParent) => {
@@ -51,6 +73,15 @@ const nextSlide = (currentParent, nextParent) => {
     currentParent.classList.add('form__group--inactive');
     nextParent.classList.remove('form__group--inactive');
     nextParent.classList.add('form__group--active');
+
+    displayBackbutton();
+};
+
+const displayBackbutton = () => {
+    backButton.classList.remove('btn--disable');
+    if (document.querySelector('.form__group--active .form__input').placeholder === 'First name') {
+        backButton.classList.add('btn--disable');
+    }
 };
 
 const validateFirstName = input => {
