@@ -1,10 +1,18 @@
 .background {
-    background-image: linear-gradient(to bottom right, $color-green-dark, $color-green-light);
     border-radius: 50%;
     box-shadow: $shadow-box;
     opacity: 0.8;
 
     &--1 {
+        background-image: linear-gradient(
+            315deg,
+            $color-green-light,
+            $color-green-dark,
+            $color-red-dark,
+            $color-red-light
+        );
+        background-size: 200% 200%;
+        background-position: 100% 100%;
         width: 45rem;
         height: 45rem;
         position: absolute;
@@ -15,7 +23,15 @@
     }
 
     &--2 {
-        background-image: radial-gradient($color-green-dark, $color-green-light);
+        background-image: linear-gradient(
+            315deg,
+            $color-green-light,
+            $color-green-dark,
+            $color-red-light,
+            $color-red-dark
+        );
+        background-size: 200% 200%;
+        background-position: 100% 100%;
         width: 130rem;
         height: 130rem;
         position: absolute;
@@ -29,7 +45,7 @@
         background-image: linear-gradient(to bottom right, $color-grey, $color-green-dark);
         width: 90rem;
         height: 90rem;
-        opacity: 0.6;
+        opacity: 0.8;
         position: absolute;
         top: 50%;
         left: 50%;

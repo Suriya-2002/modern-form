@@ -1,5 +1,13 @@
 .form {
-    background-image: linear-gradient(315deg, $color-green-light 0%, $color-green-dark 75%);
+    background-image: linear-gradient(
+        315deg,
+        $color-green-light,
+        $color-green-dark,
+        $color-red-dark,
+        $color-red-light
+    );
+    background-size: 200% 200%;
+    background-position: 100% 100%;
     height: 100vh;
     position: relative;
     overflow: hidden;
@@ -17,7 +25,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        z-index: 4;
+        z-index: 5;
         transition: all 0.5s;
 
         &--active {

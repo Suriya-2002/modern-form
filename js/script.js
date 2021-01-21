@@ -1,3 +1,8 @@
+const form = document.querySelector('.form');
+const errorMessage = document.querySelector('.error-message');
+const background1 = document.querySelector('.background--1');
+const background2 = document.querySelector('.background--2');
+
 document.addEventListener('mousemove', event => {
     document.querySelectorAll('.parallax').forEach(element => {
         const speed = parseFloat(element.getAttribute('data-depth'));
@@ -17,10 +22,26 @@ const init = () => {
             const currentParent = document.querySelector('.form__group--active');
             const nextParent = currentParent.nextElementSibling;
 
-            const input = nextParent.querySelector('.form__input');
-            input.focus();
+            const input = currentParent.querySelector('.form__input');
 
-            nextSlide(currentParent, nextParent);
+            nextParent.querySelector('.form__input').focus();
+
+            if (input.placeholder === 'First name' && validateFirstName(input)) {
+                nextSlide(currentParent, nextParent);
+            } else if (input.placeholder === 'Last name') {
+                nextSlide(currentParent, nextParent);
+            } else if (input.placeholder === 'Email address' && validateEmail(input)) {
+                nextSlide(currentParent, nextParent);
+            } else if (input.placeholder === 'Age' && validateAge(input)) {
+                const password = input.value;
+                nextSlide(currentParent, nextParent);
+            } else {
+                currentParent.style.animation = 'shake 0.4s ease';
+            }
+
+            currentParent.addEventListener('animationend', () => {
+                currentParent.style.animation = '';
+            });
         });
     });
 };
@@ -30,6 +51,59 @@ const nextSlide = (currentParent, nextParent) => {
     currentParent.classList.add('form__group--inactive');
     nextParent.classList.remove('form__group--inactive');
     nextParent.classList.add('form__group--active');
+};
+
+const validateFirstName = input => {
+    if (input.value.length === 0) {
+        invalidData();
+        errorMessage.innerHTML = `First name can't be blank`;
+    } else {
+        validData();
+        return true;
+    }
+};
+
+const validateEmail = input => {
+    const validEmailRegex = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+    if (validEmailRegex.test(input.value)) {
+        validData();
+        return true;
+    } else if (input.value.length === 0) {
+        invalidData();
+        errorMessage.innerHTML = `Email address can't be blank`;
+    } else {
+        invalidData();
+        errorMessage.innerHTML = 'Invalid Email address';
+    }
+};
+
+const validateAge = input => {
+    if (input.value.toString()) {
+        invalidData();
+        errorMessage.innerHTML = `Age can't be blank`;
+    } else if (input.value > 0) {
+        invalidData();
+        errorMessage.innerHTML = `Invalid Age`;
+    } else {
+        validData();
+        return true;
+    }
+};
+
+const validData = () => {
+    form.style.animation = `gradient-green 2s both`;
+    background1.style.animation = `gradient-green 1s 1s both`;
+    background2.style.animation = `gradient-green 1.5s 1s both`;
+
+    errorMessage.classList.add('error-message--disable');
+};
+
+const invalidData = () => {
+    form.style.animation = `gradient-red 2s both`;
+    background1.style.animation = `gradient-red 0.5s 1s both`;
+    background2.style.animation = `gradient-red 1s 1s both`;
+
+    errorMessage.classList.remove('error-message--disable');
 };
 
 init();
