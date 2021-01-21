@@ -109,10 +109,10 @@ const validateEmail = input => {
 };
 
 const validateAge = input => {
-    if (input.value.toString()) {
+    if (!input.value) {
         invalidData();
         errorMessage.innerHTML = `Age can't be blank`;
-    } else if (input.value > 0) {
+    } else if (parseInt(input.value) < 1 || parseInt(input.value) > 150) {
         invalidData();
         errorMessage.innerHTML = `Invalid Age`;
     } else {
