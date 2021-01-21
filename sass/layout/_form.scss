@@ -12,6 +12,7 @@
     position: relative;
     overflow: hidden;
     transition: all 1s ease;
+    animation: gradient-green 0s both;
 
     &__group {
         background-color: $color-white;

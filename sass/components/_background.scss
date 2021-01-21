@@ -20,6 +20,7 @@
         left: 50%;
         transform: translate(-50%, -50%);
         z-index: 3;
+        animation: gradient-green 0s both;
     }
 
     &--2 {
@@ -39,6 +40,7 @@
         left: 100%;
         transform: translate(-50%, -50%);
         z-index: 1;
+        animation: gradient-green 0s both;
     }
 
     &--inner {
