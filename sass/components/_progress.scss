@@ -21,5 +21,10 @@
         width: 5rem;
         border: solid $color-white 0.5rem;
         border-radius: 100rem;
+        transition: all 0.3s ease-in-out;
+
+        &--checked {
+            background-color: $color-white;
+        }
     }
 }

@@ -190,7 +190,10 @@ body {
     height: 5rem;
     width: 5rem;
     border: solid #fff 0.5rem;
-    border-radius: 100rem; }
+    border-radius: 100rem;
+    transition: all 0.3s ease-in-out; }
+    .progress__indicator--checked {
+      background-color: #fff; }
 
 .form {
   background-image: linear-gradient(315deg, #3bb78f, #0bab64, #bd4f6c, #fc575e);

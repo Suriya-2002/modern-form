@@ -1,5 +1,6 @@
 const form = document.querySelector('.form');
 const backButton = document.querySelector('.btn--back');
+const progressIndicators = document.querySelectorAll('.progress__indicator');
 const background1 = document.querySelector('.background--1');
 const background2 = document.querySelector('.background--2');
 const errorMessage = document.querySelector('.error-message');
@@ -17,6 +18,7 @@ document.addEventListener('mousemove', event => {
 
 const init = () => {
     document.querySelectorAll('.form__input')[0].focus();
+    let progress = 0;
 
     document.querySelectorAll('.icon-next').forEach(arrowNext => {
         arrowNext.addEventListener('click', () => {
@@ -29,13 +31,17 @@ const init = () => {
 
             if (input.placeholder === 'First name' && validateFirstName(input)) {
                 nextSlide(currentParent, nextParent);
+                progress = 1;
             } else if (input.placeholder === 'Last name') {
                 nextSlide(currentParent, nextParent);
+                progress = 2;
             } else if (input.placeholder === 'Email address' && validateEmail(input)) {
                 nextSlide(currentParent, nextParent);
+                progress = 3;
             } else if (input.placeholder === 'Age' && validateAge(input)) {
                 const password = input.value;
                 nextSlide(currentParent, nextParent);
+                progress = 4;
             } else {
                 currentParent.style.animation = 'shake 0.4s ease';
             }
@@ -43,6 +49,8 @@ const init = () => {
             currentParent.addEventListener('animationend', () => {
                 currentParent.style.animation = '';
             });
+
+            progressIndicator(progress);
         });
     });
 
@@ -63,6 +71,8 @@ const init = () => {
             validData();
             displayBackbutton();
         }
+
+        progressIndicator(--progress);
     });
 
     displayBackbutton();
@@ -81,6 +91,16 @@ const displayBackbutton = () => {
     backButton.classList.remove('btn--disable');
     if (document.querySelector('.form__group--active .form__input').placeholder === 'First name') {
         backButton.classList.add('btn--disable');
+    }
+};
+
+const progressIndicator = progress => {
+    for (let i = 1; i <= progress; i++) {
+        document.querySelector(`.progress__indicator--${i}`).classList.add('progress__indicator--checked');
+    }
+
+    for (let i = progress + 1; i <= progressIndicators.length; i++) {
+        document.querySelector(`.progress__indicator--${i}`).classList.remove('progress__indicator--checked');
     }
 };
 
