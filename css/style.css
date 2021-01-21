@@ -169,6 +169,29 @@ body {
   .icon--back {
     font-size: 6rem; }
 
+.progress {
+  color: #fff;
+  font-size: 5rem;
+  border-radius: 0.5rem;
+  height: 40rem;
+  min-width: 3rem;
+  padding: 1rem;
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  transform: translate(-50%, -50%);
+  z-index: 5; }
+  .progress__indicator {
+    background-color: transparent;
+    height: 5rem;
+    width: 5rem;
+    border: solid #fff 0.5rem;
+    border-radius: 100rem; }
+
 .form {
   background-image: linear-gradient(315deg, #3bb78f, #0bab64, #bd4f6c, #fc575e);
   background-size: 200% 200%;
