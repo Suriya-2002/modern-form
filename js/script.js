@@ -219,4 +219,8 @@ const invalidData = () => {
     errorMessage.classList.remove('error-message--disable');
 };
 
+setTimeout(() => {
+    document.querySelector('.loading').classList.add('loading--disable');
+}, 8 * 1000);
+
 init();
