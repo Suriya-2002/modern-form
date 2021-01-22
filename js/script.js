@@ -7,6 +7,8 @@ const errorMessage = document.querySelector('.error-message');
 const dropdownInput = document.querySelector('.form__input--dropdown');
 const dropdownItem = document.querySelectorAll('.dropdown__item');
 
+let progress = 0;
+
 document.addEventListener('mousemove', event => {
     document.querySelectorAll('.parallax').forEach(element => {
         const speed = parseFloat(element.getAttribute('data-depth'));
@@ -20,44 +22,11 @@ document.addEventListener('mousemove', event => {
 
 const init = () => {
     document.querySelectorAll('.form__input')[0].focus();
-    let progress = 0;
 
     displayBackbutton();
 
     document.querySelectorAll('.icon-next').forEach(arrowNext => {
-        arrowNext.addEventListener('click', () => {
-            const currentParent = document.querySelector('.form__group--active');
-            const nextParent = currentParent.nextElementSibling;
-
-            const input = currentParent.querySelector('.form__input');
-
-            nextParent.querySelector('.form__input').focus();
-
-            if (input.getAttribute('data-input') === 'first-name' && validateFirstName(input)) {
-                nextSlide(currentParent, nextParent);
-                progress = 1;
-            } else if (input.getAttribute('data-input') === 'last-name') {
-                nextSlide(currentParent, nextParent);
-                progress = 2;
-            } else if (input.getAttribute('data-input') === 'email-address' && validateEmail(input)) {
-                nextSlide(currentParent, nextParent);
-                progress = 3;
-            } else if (input.getAttribute('data-input') === 'age' && validateAge(input)) {
-                nextSlide(currentParent, nextParent);
-                progress = 4;
-            } else if (input.getAttribute('data-input') === 'gender' && validateGender(input)) {
-                nextSlide(currentParent, nextParent);
-                progress = 5;
-            } else {
-                currentParent.style.animation = 'shake 0.4s ease';
-            }
-
-            currentParent.addEventListener('animationend', () => {
-                currentParent.style.animation = '';
-            });
-
-            progressIndicator(progress);
-        });
+        arrowNext.addEventListener('click', nextArrowClicked);
     });
 
     backButton.addEventListener('click', () => {
@@ -86,6 +55,55 @@ const init = () => {
             dropdownInput.innerHTML = item.innerHTML;
         });
     });
+};
+
+document.addEventListener('keydown', event => {
+    if (
+        event.key === 'Enter' &&
+        document.querySelector('.form__group--active .form__input').getAttribute('data-input') !== 'submit'
+    ) {
+        event.preventDefault();
+        nextArrowClicked();
+    } else if (
+        event.key === 'Enter' &&
+        document.querySelector('.form__group--active .form__input').getAttribute('data-input') === 'submit'
+    ) {
+        document.querySelector('#form').submit();
+    }
+});
+
+const nextArrowClicked = () => {
+    const currentParent = document.querySelector('.form__group--active');
+    const nextParent = currentParent.nextElementSibling;
+
+    const input = currentParent.querySelector('.form__input');
+
+    nextParent.querySelector('.form__input').focus();
+
+    if (input.getAttribute('data-input') === 'first-name' && validateFirstName(input)) {
+        nextSlide(currentParent, nextParent);
+        progress = 1;
+    } else if (input.getAttribute('data-input') === 'last-name') {
+        nextSlide(currentParent, nextParent);
+        progress = 2;
+    } else if (input.getAttribute('data-input') === 'email-address' && validateEmail(input)) {
+        nextSlide(currentParent, nextParent);
+        progress = 3;
+    } else if (input.getAttribute('data-input') === 'age' && validateAge(input)) {
+        nextSlide(currentParent, nextParent);
+        progress = 4;
+    } else if (input.getAttribute('data-input') === 'gender' && validateGender(input)) {
+        nextSlide(currentParent, nextParent);
+        progress = 5;
+    } else {
+        currentParent.style.animation = 'shake 0.4s ease';
+    }
+
+    currentParent.addEventListener('animationend', () => {
+        currentParent.style.animation = '';
+    });
+
+    progressIndicator(progress);
 };
 
 const nextSlide = (currentParent, nextParent) => {
@@ -195,6 +213,8 @@ const invalidData = () => {
             item.classList.remove('dropdown__item--error');
         });
     });
+
+    document.querySelector('.form__group--active .form__input').focus();
 
     errorMessage.classList.remove('error-message--disable');
 };
