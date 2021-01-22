@@ -4,6 +4,8 @@ const progressIndicators = document.querySelectorAll('.progress__indicator');
 const background1 = document.querySelector('.background--1');
 const background2 = document.querySelector('.background--2');
 const errorMessage = document.querySelector('.error-message');
+const dropdownInput = document.querySelector('.form__input--dropdown');
+const dropdownItem = document.querySelectorAll('.dropdown__item');
 
 document.addEventListener('mousemove', event => {
     document.querySelectorAll('.parallax').forEach(element => {
@@ -20,6 +22,8 @@ const init = () => {
     document.querySelectorAll('.form__input')[0].focus();
     let progress = 0;
 
+    displayBackbutton();
+
     document.querySelectorAll('.icon-next').forEach(arrowNext => {
         arrowNext.addEventListener('click', () => {
             const currentParent = document.querySelector('.form__group--active');
@@ -29,19 +33,21 @@ const init = () => {
 
             nextParent.querySelector('.form__input').focus();
 
-            if (input.placeholder === 'First name' && validateFirstName(input)) {
+            if (input.getAttribute('data-input') === 'first-name' && validateFirstName(input)) {
                 nextSlide(currentParent, nextParent);
                 progress = 1;
-            } else if (input.placeholder === 'Last name') {
+            } else if (input.getAttribute('data-input') === 'last-name') {
                 nextSlide(currentParent, nextParent);
                 progress = 2;
-            } else if (input.placeholder === 'Email address' && validateEmail(input)) {
+            } else if (input.getAttribute('data-input') === 'email-address' && validateEmail(input)) {
                 nextSlide(currentParent, nextParent);
                 progress = 3;
-            } else if (input.placeholder === 'Age' && validateAge(input)) {
-                const password = input.value;
+            } else if (input.getAttribute('data-input') === 'age' && validateAge(input)) {
                 nextSlide(currentParent, nextParent);
                 progress = 4;
+            } else if (input.getAttribute('data-input') === 'gender' && validateGender(input)) {
+                nextSlide(currentParent, nextParent);
+                progress = 5;
             } else {
                 currentParent.style.animation = 'shake 0.4s ease';
             }
@@ -75,7 +81,11 @@ const init = () => {
         progressIndicator(--progress);
     });
 
-    displayBackbutton();
+    dropdownItem.forEach(item => {
+        item.addEventListener('click', () => {
+            dropdownInput.innerHTML = item.innerHTML;
+        });
+    });
 };
 
 const nextSlide = (currentParent, nextParent) => {
@@ -89,7 +99,10 @@ const nextSlide = (currentParent, nextParent) => {
 
 const displayBackbutton = () => {
     backButton.classList.remove('btn--disable');
-    if (document.querySelector('.form__group--active .form__input').placeholder === 'First name') {
+    if (
+        document.querySelector('.form__group--active .form__input').getAttribute('data-input') ===
+        'first-name'
+    ) {
         backButton.classList.add('btn--disable');
     }
 };
@@ -141,10 +154,29 @@ const validateAge = input => {
     }
 };
 
+const validateGender = input => {
+    if (!input.textContent.trim()) {
+        invalidData();
+        errorMessage.textContent = `Please select a gender`;
+    } else if (input.textContent.trim() === 'Select gender') {
+        invalidData();
+        errorMessage.textContent = `Please select a gender`;
+    } else {
+        validData();
+        return true;
+    }
+};
+
 const validData = () => {
     form.style.animation = `gradient-green 2s both`;
     background1.style.animation = `gradient-green 1s 1s both`;
     background2.style.animation = `gradient-green 1.5s 1s both`;
+
+    dropdownItem.forEach(item => {
+        item.addEventListener('mouseover', () => {
+            item.classList.remove('dropdown__item--error');
+        });
+    });
 
     errorMessage.classList.add('error-message--disable');
 };
@@ -153,6 +185,16 @@ const invalidData = () => {
     form.style.animation = `gradient-red 2s both`;
     background1.style.animation = `gradient-red 0.5s 1s both`;
     background2.style.animation = `gradient-red 1s 1s both`;
+
+    dropdownItem.forEach(item => {
+        item.addEventListener('mouseover', () => {
+            item.classList.add('dropdown__item--error');
+        });
+
+        item.addEventListener('mouseleave', () => {
+            item.classList.remove('dropdown__item--error');
+        });
+    });
 
     errorMessage.classList.remove('error-message--disable');
 };

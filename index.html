@@ -27,6 +27,7 @@
                 <div class="progress__indicator progress__indicator--2"></div>
                 <div class="progress__indicator progress__indicator--3"></div>
                 <div class="progress__indicator progress__indicator--4"></div>
+                <div class="progress__indicator progress__indicator--5"></div>
             </div>
 
             <div class="background background--1 parallax" data-depth="2"></div>
@@ -46,6 +47,7 @@
                         name="first-name"
                         id="first-name"
                         placeholder="First name"
+                        data-input="first-name"
                     />
                     <label class="form__slide" for="first-name">First name</label>
                     <div class="icon-container icon-next">
@@ -63,6 +65,7 @@
                         name="last-name"
                         id="last-name"
                         placeholder="Last name"
+                        data-input="last-name"
                     />
                     <label class="form__slide" for="last-name">Last name</label>
                     <div class="icon-container icon-next">
@@ -80,6 +83,7 @@
                         name="email-address"
                         id="email-address"
                         placeholder="Email address"
+                        data-input="email-address"
                     />
                     <label class="form__slide" for="email-address">Email address</label>
                     <div class="icon-container icon-next">
@@ -91,10 +95,45 @@
                     <label class="icon-container" for="age"
                         ><i class="icon icon--label fas fa-user-clock"></i
                     ></label>
-                    <input class="input form__input" type="number" name="age" id="age" placeholder="Age" />
+                    <input
+                        class="input form__input"
+                        type="number"
+                        name="age"
+                        id="age"
+                        placeholder="Age"
+                        data-input="age"
+                    />
                     <label class="form__slide" for="age">Age</label>
                     <div class="icon-container icon-next">
                         <i class="icon icon--arrow fas fa-long-arrow-alt-right"></i>
+                    </div>
+                </div>
+
+                <div class="form__group form__group--inactive">
+                    <label class="icon-container" for="gender"
+                        ><i class="icon icon--label fas fa-venus-mars"></i
+                    ></label>
+                    <button
+                        class="input form__input form__input--dropdown"
+                        type="button"
+                        name="gender"
+                        id="gender"
+                        data-input="gender"
+                    >
+                        Select gender
+                        <span class="form__dropdown-icon"><i class="icon fas fa-caret-down"></i></span>
+                    </button>
+                    <label class="form__slide" for="gender">Gender</label>
+                    <div class="icon-container icon-next">
+                        <i class="icon icon--arrow fas fa-long-arrow-alt-right"></i>
+                    </div>
+
+                    <div class="dropdown dropdown--diable">
+                        <ul class="dropdonw__list">
+                            <li class="dropdown__item">Male</li>
+                            <li class="dropdown__item">Female</li>
+                            <li class="dropdown__item">Others</li>
+                        </ul>
                     </div>
                 </div>
 

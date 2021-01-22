@@ -1,0 +1,34 @@
+.dropdown {
+    background-color: $color-white;
+    border-radius: 1rem;
+    width: 100%;
+    margin-top: 10rem;
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: calc(50% + 15rem);
+    left: 50%;
+    transform: translate(-50%, calc(-50% - 5rem));
+    transition: all 0.3s ease-in-out;
+
+    &__item {
+        font-size: 3.5rem;
+        font-weight: 700;
+        text-align: center;
+        list-style: none;
+        padding: 2rem 4rem;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+            background-color: $color-green-light;
+            color: $color-white;
+        }
+
+        &--error {
+            &:hover {
+                background-color: $color-red-dark;
+            }
+        }
+    }
+}

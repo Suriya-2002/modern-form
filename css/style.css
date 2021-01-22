@@ -129,6 +129,32 @@ body {
     opacity: 0;
     pointer-events: none; }
 
+.dropdown {
+  background-color: #fff;
+  border-radius: 1rem;
+  width: 100%;
+  margin-top: 10rem;
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  top: calc(50% + 15rem);
+  left: 50%;
+  transform: translate(-50%, calc(-50% - 5rem));
+  transition: all 0.3s ease-in-out; }
+  .dropdown__item {
+    font-size: 3.5rem;
+    font-weight: 700;
+    text-align: center;
+    list-style: none;
+    padding: 2rem 4rem;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out; }
+    .dropdown__item:hover {
+      background-color: #3bb78f;
+      color: #fff; }
+    .dropdown__item--error:hover {
+      background-color: #bd4f6c; }
+
 .error-message {
   color: #fc575e;
   background-color: rgba(0, 0, 0, 0.7);
@@ -236,6 +262,18 @@ body {
       transform: translate(0.5rem, 0); }
     .form__input::placeholder {
       color: transparent; }
+    .form__input--dropdown {
+      background-color: inherit;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer; }
+      .form__input--dropdown:focus ~ .dropdown {
+        opacity: 1;
+        visibility: visible;
+        transform: translate(-50%, -50%); }
+      .form__input--dropdown::placeholder {
+        color: #000; }
   .form__slide {
     font-size: 3.5rem;
     font-weight: 700;
@@ -243,3 +281,13 @@ body {
     position: absolute;
     transform: translateY(-10rem) scale(1.3);
     transition: all 0.5s ease; }
+  .form__dropdown-icon {
+    width: 8rem;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out; }
+    .form__dropdown-icon:hover {
+      transform: translateY(0.8rem); }
