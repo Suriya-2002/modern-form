@@ -40,6 +40,14 @@
             pointer-events: none;
             transform: translate(-30%, -50%) !important;
         }
+
+        &--submit {
+            background-color: rgba($color-white, 0.5);
+            height: 20rem;
+            top: 60%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-10deg) skew(25deg);
+        }
     }
 
     &__input {
