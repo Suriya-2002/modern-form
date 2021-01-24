@@ -6,6 +6,7 @@ const background2 = document.querySelector('.background--2');
 const errorMessage = document.querySelector('.error-message');
 const dropdownInput = document.querySelector('.form__input--dropdown');
 const dropdownItem = document.querySelectorAll('.dropdown__item');
+const dateOfBirthInput = document.querySelector('.form__input--date-of-birth');
 
 let progress = 0;
 
@@ -55,6 +56,14 @@ const init = () => {
             dropdownInput.innerHTML = item.innerHTML;
         });
     });
+
+    dateOfBirthInput.addEventListener('keyup', event => {
+        if (event.key !== 'Backspace') {
+            if (dateOfBirthInput.value.length === 2 || dateOfBirthInput.value.length === 5) {
+                dateOfBirthInput.value += '-';
+            }
+        }
+    });
 };
 
 document.addEventListener('keydown', event => {
@@ -95,6 +104,9 @@ const nextArrowClicked = () => {
     } else if (input.getAttribute('data-input') === 'gender' && validateGender(input)) {
         nextSlide(currentParent, nextParent);
         progress = 5;
+    } else if (input.getAttribute('data-input') === 'date-of-birth' && validateDateOfBirth(input)) {
+        nextSlide(currentParent, nextParent);
+        progress = 6;
     } else {
         currentParent.style.animation = 'shake 0.4s ease';
     }
@@ -182,6 +194,41 @@ const validateGender = input => {
     } else {
         validData();
         return true;
+    }
+};
+
+const validateDateOfBirth = input => {
+    let flag = false;
+
+    if (!input.value) {
+        invalidData();
+        errorMessage.innerHTML = `Date of birth can't be blank`;
+    } else if (input.value.length !== 10 || input.value[2] !== '-' || input.value[5] !== '-') {
+        invalidData();
+        errorMessage.innerHTML = `Date of birth format should be DD-MM-YYYY`;
+    } else {
+        const dateOfBirth = input.value.split('-').map(component => parseInt(component));
+        const date = new Date(dateOfBirth[2], dateOfBirth[1] - 1, dateOfBirth[0]);
+        let dummyDate = new Date();
+
+        for (let i = 0; i < input.value.length; i++) {
+            if (!parseInt(input.value[i]) && parseInt(input.value[i]) !== 0 && i !== 2 && i !== 5)
+                flag = true;
+        }
+
+        if (flag) {
+            invalidData();
+            errorMessage.innerHTML = `Invalid Date of birth (format DD-MM-YYYY)`;
+        } else if (date >= Date.now()) {
+            invalidData();
+            errorMessage.innerHTML = `Date of birth can't be in future`;
+        } else if (dummyDate.getFullYear() - parseInt(dateOfBirth[2]) > 150) {
+            invalidData();
+            errorMessage.innerHTML = `Invalid Date of birth`;
+        } else {
+            validData();
+            return true;
+        }
     }
 };
 
