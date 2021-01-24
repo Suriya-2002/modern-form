@@ -12,7 +12,9 @@
         "compress:css": "node-sass css/style.prefix.css css/style.min.css --output-style compressed",
         "build:css": "npm-run-all compile:sass prefix:css compress:css",
         "compress:js": "uglifyjs --compress --mangle -o ./js/script.min.js -- ./js/script.js",
-        "build": "npm-run-all build:css compress:js"
+        "compress:thank-you-js": "uglifyjs --compress --mangle -o ./js/thankYou.min.js -- ./js/thankYou.js",
+        "build:js": "npm-run-all compress:js compress:thank-you-js",
+        "build": "npm-run-all build:css build:js"
     },
     "repository": {
         "type": "git",
