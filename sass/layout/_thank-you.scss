@@ -1,0 +1,42 @@
+.thank-you {
+    background-image: linear-gradient(
+        315deg,
+        $color-blue-dark,
+        $color-blue-light,
+        $color-green-light,
+        $color-green-dark,
+        $color-red-light,
+        $color-red-dark
+    );
+    background-size: 400% 400%;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    animation: loading-gradient 10s ease-in-out infinite;
+
+    &__container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    &__title {
+        font-size: 15rem;
+        text-shadow: $shadow-box;
+        text-align: center;
+        color: $color-white;
+        opacity: 0.4;
+        line-height: 1.4;
+        width: 100vw;
+    }
+
+    &__text {
+        color: $color-white;
+        font-size: 3.2rem;
+        text-align: center;
+        text-shadow: $shadow-box;
+        width: 100vw;
+    }
+}

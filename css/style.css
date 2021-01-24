@@ -410,3 +410,31 @@ body {
     transition: all 0.3s ease-in-out; }
     .form__dropdown-icon:hover {
       transform: translateY(0.8rem); }
+
+.thank-you {
+  background-image: linear-gradient(315deg, #2a2a72, #009ffd, #3bb78f, #0bab64, #fc575e, #bd4f6c);
+  background-size: 400% 400%;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  animation: loading-gradient 10s ease-in-out infinite; }
+  .thank-you__container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
+  .thank-you__title {
+    font-size: 15rem;
+    text-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.4);
+    text-align: center;
+    color: #fff;
+    opacity: 0.4;
+    line-height: 1.4;
+    width: 100vw; }
+  .thank-you__text {
+    color: #fff;
+    font-size: 3.2rem;
+    text-align: center;
+    text-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.4);
+    width: 100vw; }
