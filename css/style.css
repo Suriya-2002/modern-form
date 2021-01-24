@@ -73,6 +73,15 @@ html {
   @media only screen and (max-width: 87.5em) {
     html {
       font-size: 40%; } }
+  @media only screen and (max-width: 75em) {
+    html {
+      font-size: 55%; } }
+  @media only screen and (max-width: 56.25em) {
+    html {
+      font-size: 50%; } }
+  @media only screen and (max-width: 46.875em) {
+    html {
+      font-size: 45%; } }
 
 body {
   box-sizing: border-box; }
@@ -102,6 +111,19 @@ body {
     transform: translate(-50%, -50%);
     z-index: 3;
     animation: gradient-green 0s both; }
+    @media only screen and (max-width: 75em) {
+      .background--1 {
+        width: 50rem;
+        height: 50rem;
+        top: 30%; } }
+    @media only screen and (max-width: 56.25em) {
+      .background--1 {
+        width: 40rem;
+        height: 40rem; } }
+    @media only screen and (max-width: 50em) {
+      .background--1 {
+        width: 32rem;
+        height: 32rem; } }
   .background--2 {
     background-image: linear-gradient(315deg, #3bb78f, #0bab64, #fc575e, #bd4f6c);
     background-size: 200% 200%;
@@ -114,6 +136,14 @@ body {
     transform: translate(-50%, -50%);
     z-index: 1;
     animation: gradient-green 0s both; }
+    @media only screen and (max-width: 75em) {
+      .background--2 {
+        width: 130rem;
+        height: 130rem; } }
+    @media only screen and (max-width: 56.25em) {
+      .background--2 {
+        width: 100rem;
+        height: 100rem; } }
   .background--inner {
     background-image: linear-gradient(to bottom right, #aaa, #0bab64);
     width: 65rem;
@@ -124,6 +154,14 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 2; }
+    @media only screen and (max-width: 75em) {
+      .background--inner {
+        width: 90rem;
+        height: 90rem; } }
+    @media only screen and (max-width: 56.25em) {
+      .background--inner {
+        width: 70rem;
+        height: 70rem; } }
 
 .btn {
   border: none;
@@ -189,6 +227,15 @@ body {
     transform: translate(calc(-50% + calc(25 * 3px)), calc(-50% - calc(25 * 3px))); }
   .btn:hover .btn__stack:nth-child(4) {
     transform: translate(calc(-50% + calc(25 * 4px)), calc(-50% - calc(25 * 4px))); }
+  @media only screen and (max-width: 75em) {
+    .btn:hover .btn__stack:nth-child(1) {
+      transform: translate(-50%, -50%); }
+    .btn:hover .btn__stack:nth-child(2) {
+      transform: translate(-50%, -50%); }
+    .btn:hover .btn__stack:nth-child(3) {
+      transform: translate(-50%, -50%); }
+    .btn:hover .btn__stack:nth-child(4) {
+      transform: translate(-50%, -50%); } }
   .btn:active .btn__stack:nth-child(1) {
     transform: translate(calc(-50% + calc(12 * 1px)), calc(-50% - calc(12 * 1px))); }
   .btn:active .btn__stack:nth-child(2) {
@@ -197,6 +244,15 @@ body {
     transform: translate(calc(-50% + calc(12 * 3px)), calc(-50% - calc(12 * 3px))); }
   .btn:active .btn__stack:nth-child(4) {
     transform: translate(calc(-50% + calc(12 * 4px)), calc(-50% - calc(12 * 4px))); }
+  @media only screen and (max-width: 75em) {
+    .btn:active .btn__stack:nth-child(1) {
+      transform: translate(-50%, -50%); }
+    .btn:active .btn__stack:nth-child(2) {
+      transform: translate(-50%, -50%); }
+    .btn:active .btn__stack:nth-child(3) {
+      transform: translate(-50%, -50%); }
+    .btn:active .btn__stack:nth-child(4) {
+      transform: translate(-50%, -50%); } }
 
 .dropdown {
   background-color: #fff;
@@ -246,6 +302,10 @@ body {
   .error-message--disable {
     opacity: 0;
     pointer-events: none; }
+  @media only screen and (max-width: 75em) {
+    .error-message {
+      top: 40%;
+      width: 80vw; } }
 
 .icon-container {
   height: 100%;
@@ -310,6 +370,18 @@ body {
       animation-delay: calc(6 * 0.3s); }
     .loading__element:nth-child(7) {
       animation-delay: calc(7 * 0.3s); }
+    @media only screen and (max-width: 56.25em) {
+      .loading__element:nth-child(1) {
+        animation-delay: calc(1 * 0.3s); }
+      .loading__element:nth-child(2) {
+        animation-delay: calc(2 * 0.3s); }
+      .loading__element:nth-child(3) {
+        animation-delay: calc(3 * 0.3s); }
+      .loading__element:nth-child(4) {
+        animation-delay: calc(4 * 0.3s); } }
+    @media only screen and (max-width: 46.875em) {
+      .loading__element {
+        width: 5rem; } }
   .loading--disable {
     opacity: 0;
     pointer-events: none;
@@ -333,6 +405,11 @@ body {
   align-items: center;
   transform: translate(-50%, -50%);
   z-index: 5; }
+  @media only screen and (max-width: 75em) {
+    .progress {
+      top: 85%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-90deg); } }
   .progress__indicator {
     background-color: transparent;
     height: 3.5rem;
@@ -380,6 +457,13 @@ body {
       top: 60%;
       left: 50%;
       transform: translate(-50%, -50%) rotate(-12deg) skew(25deg); }
+      @media only screen and (max-width: 75em) {
+        .form__group--submit {
+          transform: translate(-50%, -50%); } }
+    @media only screen and (max-width: 75em) {
+      .form__group {
+        top: 30%;
+        width: 80vw; } }
   .form__input {
     font-size: 3rem;
     border: none;

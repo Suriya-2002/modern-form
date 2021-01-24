@@ -21,6 +21,22 @@
         transform: translate(-50%, -50%);
         z-index: 3;
         animation: gradient-green 0s both;
+
+        @include responsive(tab-l) {
+            width: 50rem;
+            height: 50rem;
+            top: 30%;
+        }
+
+        @include responsive(tab-p) {
+            width: 40rem;
+            height: 40rem;
+        }
+
+        @include responsive(800) {
+            width: 32rem;
+            height: 32rem;
+        }
     }
 
     &--2 {
@@ -41,6 +57,16 @@
         transform: translate(-50%, -50%);
         z-index: 1;
         animation: gradient-green 0s both;
+
+        @include responsive(tab-l) {
+            width: 130rem;
+            height: 130rem;
+        }
+
+        @include responsive(tab-p) {
+            width: 100rem;
+            height: 100rem;
+        }
     }
 
     &--inner {
@@ -53,5 +79,15 @@
         left: 50%;
         transform: translate(-50%, -50%);
         z-index: 2;
+
+        @include responsive(tab-l) {
+            width: 90rem;
+            height: 90rem;
+        }
+
+        @include responsive(tab-p) {
+            width: 70rem;
+            height: 70rem;
+        }
     }
 }

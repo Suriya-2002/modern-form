@@ -45,6 +45,18 @@
                 animation-delay: calc(#{$i} * 0.3s);
             }
         }
+
+        @include responsive(tab-p) {
+            @for $i from 1 through 4 {
+                &:nth-child(#{$i}) {
+                    animation-delay: calc(#{$i} * 0.3s);
+                }
+            }
+        }
+
+        @include responsive(750) {
+            width: 5rem;
+        }
     }
 
     &--disable {

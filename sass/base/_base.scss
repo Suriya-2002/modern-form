@@ -20,6 +20,18 @@ html {
     @include responsive(1400) {
         font-size: 40%;
     }
+
+    @include responsive(tab-l) {
+        font-size: 55%;
+    }
+
+    @include responsive(tab-p) {
+        font-size: 50%;
+    }
+
+    @include responsive(750) {
+        font-size: 45%;
+    }
 }
 
 body {

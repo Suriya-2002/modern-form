@@ -15,6 +15,12 @@
     transform: translate(-50%, -50%);
     z-index: 5;
 
+    @include responsive(tab-l) {
+        top: 85%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(-90deg);
+    }
+
     &__indicator {
         background-color: transparent;
         height: 3.5rem;

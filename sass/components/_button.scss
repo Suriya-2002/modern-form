@@ -77,12 +77,28 @@
                 transform: translate(calc(-50% + calc(25 * #{$i}px)), calc(-50% - calc(25 * #{$i}px)));
             }
         }
+
+        @include responsive(tab-l) {
+            @for $i from 1 through 4 {
+                .btn__stack:nth-child(#{$i}) {
+                    transform: translate(-50%, -50%);
+                }
+            }
+        }
     }
 
     &:active {
         @for $i from 1 through 4 {
             .btn__stack:nth-child(#{$i}) {
                 transform: translate(calc(-50% + calc(12 * #{$i}px)), calc(-50% - calc(12 * #{$i}px)));
+            }
+        }
+
+        @include responsive(tab-l) {
+            @for $i from 1 through 4 {
+                .btn__stack:nth-child(#{$i}) {
+                    transform: translate(-50%, -50%);
+                }
             }
         }
     }

@@ -10,16 +10,27 @@ const dateOfBirthInput = document.querySelector('.form__input--date-of-birth');
 
 let progress = 0;
 
-document.addEventListener('mousemove', event => {
-    document.querySelectorAll('.parallax').forEach(element => {
-        const speed = parseFloat(element.getAttribute('data-depth'));
+if (window.innerWidth > 1200) {
+    document.addEventListener('mousemove', event => {
+        document.querySelectorAll('.parallax').forEach(element => {
+            const speed = parseFloat(element.getAttribute('data-depth'));
 
-        const x = (event.pageX - window.innerWidth / 2) / speed;
-        const y = (event.pageY - window.innerHeight / 2) / speed;
+            const x = (event.pageX - window.innerWidth / 2) / speed;
+            const y = (event.pageY - window.innerHeight / 2) / speed;
 
-        element.style.transform = `translate(calc(-50% - ${x}px), calc(-50% - ${y}px))`;
+            element.style.transform = `translate(calc(-50% - ${x}px), calc(-50% - ${y}px))`;
+        });
     });
-});
+}
+
+if (window.innerWidth <= 900) {
+    document.querySelector(
+        '.loading__container',
+    ).innerHTML = `<div class="loading__element loading__element--1"></div>
+                <div class="loading__element loading__element--2"></div>
+                <div class="loading__element loading__element--3"></div>
+                <div class="loading__element loading__element--4"></div>`;
+}
 
 const init = () => {
     document.querySelectorAll('.form__input')[0].focus();

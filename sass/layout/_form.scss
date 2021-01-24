@@ -47,6 +47,15 @@
             top: 60%;
             left: 50%;
             transform: translate(-50%, -50%) rotate(-12deg) skew(25deg);
+
+            @include responsive(tab-l) {
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        @include responsive(tab-l) {
+            top: 30%;
+            width: 80vw;
         }
     }
 
