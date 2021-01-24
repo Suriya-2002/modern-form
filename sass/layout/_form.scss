@@ -18,8 +18,8 @@
         background-color: $color-white;
         border-radius: 1rem;
         box-shadow: $shadow-box;
-        height: 10rem;
-        min-width: 50vw;
+        height: 8rem;
+        min-width: 45vw;
         position: absolute;
         top: 50%;
         left: 50%;
@@ -43,15 +43,15 @@
 
         &--submit {
             background-color: rgba($color-white, 0.5);
-            height: 20rem;
+            min-width: 30vw;
             top: 60%;
             left: 50%;
-            transform: translate(-50%, -50%) rotate(-10deg) skew(25deg);
+            transform: translate(-50%, -50%) rotate(-12deg) skew(25deg);
         }
     }
 
     &__input {
-        font-size: 3.5rem;
+        font-size: 3rem;
         border: none;
         height: 100%;
         outline: none;
@@ -85,11 +85,11 @@
     }
 
     &__slide {
-        font-size: 3.5rem;
+        font-size: 3rem;
         font-weight: 700;
         margin-left: 10rem;
         position: absolute;
-        transform: translateY(-10rem) scale(1.3);
+        transform: translateY(-8rem) scale(1.2);
         transition: all 0.5s ease;
     }
 

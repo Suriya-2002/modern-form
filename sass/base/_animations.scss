@@ -73,21 +73,21 @@
 @keyframes loading {
     0% {
         box-shadow: 0 0 0 $color-black;
-        height: 40rem;
+        height: 25rem;
         opacity: 0;
         transform: translateX(-2rem) scale(1);
     }
 
     50% {
         box-shadow: $shadow-box;
-        height: 50rem;
+        height: 40rem;
         opacity: 1;
         transform: translateX(0) scale(1.2);
     }
 
     100% {
         box-shadow: 0 0 0 $color-black;
-        height: 40rem;
+        height: 25rem;
         opacity: 0;
         transform: translateX(2rem) scale(1);
     }

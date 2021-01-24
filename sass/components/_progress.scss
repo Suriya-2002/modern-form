@@ -2,7 +2,7 @@
     color: $color-white;
     font-size: 5rem;
     border-radius: 0.5rem;
-    height: 40rem;
+    height: 30rem;
     min-width: 3rem;
     padding: 1rem;
     position: absolute;
@@ -17,8 +17,8 @@
 
     &__indicator {
         background-color: transparent;
-        height: 5rem;
-        width: 5rem;
+        height: 3.5rem;
+        width: 3.5rem;
         border: solid $color-white 0.5rem;
         border-radius: 100rem;
         transition: all 0.3s ease-in-out;

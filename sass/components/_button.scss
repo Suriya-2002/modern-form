@@ -6,8 +6,8 @@
 
     &--back {
         background-color: rgba($color-white, 0.5);
-        width: 10rem;
-        height: 10rem;
+        width: 7.5rem;
+        height: 7.5rem;
         margin: 5rem;
         padding: 1rem 2rem;
         text-transform: capitalize;
@@ -58,7 +58,7 @@
 
         &--text {
             background-color: $color-white;
-            font-size: 6rem;
+            font-size: 4rem;
         }
     }
 
@@ -69,12 +69,12 @@
 
     &:hover {
         .btn__stack {
-            transition: all 0.3s ease-out;
+            transition: all 0.2s ease-out;
         }
 
         @for $i from 1 through 4 {
             .btn__stack:nth-child(#{$i}) {
-                transform: translate(calc(-50% + calc(50 * #{$i}px)), calc(-50% - calc(50 * #{$i}px)));
+                transform: translate(calc(-50% + calc(25 * #{$i}px)), calc(-50% - calc(25 * #{$i}px)));
             }
         }
     }
@@ -82,7 +82,7 @@
     &:active {
         @for $i from 1 through 4 {
             .btn__stack:nth-child(#{$i}) {
-                transform: translate(calc(-50% + calc(25 * #{$i}px)), calc(-50% - calc(25 * #{$i}px)));
+                transform: translate(calc(-50% + calc(12 * #{$i}px)), calc(-50% - calc(12 * #{$i}px)));
             }
         }
     }
