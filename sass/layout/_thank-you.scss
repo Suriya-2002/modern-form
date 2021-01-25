@@ -30,6 +30,14 @@
         opacity: 0.4;
         line-height: 1.4;
         width: 100vw;
+
+        @include responsive(800) {
+            font-size: 12rem;
+        }
+
+        @include responsive(500) {
+            font-size: 10rem;
+        }
     }
 
     &__text {
@@ -38,5 +46,13 @@
         text-align: center;
         text-shadow: $shadow-box;
         width: 100vw;
+
+        @include responsive(800) {
+            font-size: 2.8rem;
+        }
+
+        @include responsive(500) {
+            font-size: 2.5rem;
+        }
     }
 }

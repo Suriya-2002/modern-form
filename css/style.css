@@ -563,9 +563,21 @@ body {
     opacity: 0.4;
     line-height: 1.4;
     width: 100vw; }
+    @media only screen and (max-width: 50em) {
+      .thank-you__title {
+        font-size: 12rem; } }
+    @media only screen and (max-width: 31.25em) {
+      .thank-you__title {
+        font-size: 10rem; } }
   .thank-you__text {
     color: #fff;
     font-size: 3.2rem;
     text-align: center;
     text-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.4);
     width: 100vw; }
+    @media only screen and (max-width: 50em) {
+      .thank-you__text {
+        font-size: 2.8rem; } }
+    @media only screen and (max-width: 31.25em) {
+      .thank-you__text {
+        font-size: 2.5rem; } }
