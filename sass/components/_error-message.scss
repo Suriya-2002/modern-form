@@ -25,4 +25,8 @@
         top: 40%;
         width: 80vw;
     }
+
+    @include responsive(mob) {
+        top: 36%;
+    }
 }

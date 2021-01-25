@@ -57,6 +57,10 @@
         @include responsive(750) {
             width: 5rem;
         }
+
+        @include responsive(mob) {
+            animation: loading-small 1.5s linear infinite;
+        }
     }
 
     &--disable {

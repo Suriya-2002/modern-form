@@ -92,3 +92,26 @@
         transform: translateX(2rem) scale(1);
     }
 }
+
+@keyframes loading-small {
+    0% {
+        box-shadow: 0 0 0 $color-black;
+        height: 10rem;
+        opacity: 0;
+        transform: translateX(-2rem) scale(1);
+    }
+
+    50% {
+        box-shadow: $shadow-box;
+        height: 25rem;
+        opacity: 1;
+        transform: translateX(0) scale(1.2);
+    }
+
+    100% {
+        box-shadow: 0 0 0 $color-black;
+        height: 10rem;
+        opacity: 0;
+        transform: translateX(2rem) scale(1);
+    }
+}
