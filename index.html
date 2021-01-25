@@ -49,7 +49,7 @@
                 <div class="background background--inner parallax" data-depth="12"></div>
             </div>
 
-            <form id="form" action="#">
+            <form id="form" action="./php/form.php" method="POST">
                 <div class="form__group form__group--active">
                     <label class="icon-container" for="first-name"
                         ><i class="icon icon--label fas fa-user"></i
@@ -126,6 +126,7 @@
                     <label class="icon-container" for="gender"
                         ><i class="icon icon--label fas fa-venus-mars"></i
                     ></label>
+                    <input class="form__input--gender-hidden" type="hidden" name="gender" />
                     <button
                         class="input form__input form__input--dropdown"
                         type="button"
@@ -170,7 +171,7 @@
 
                 <div class="form__group form__group--submit form__group--inactive">
                     <input class="input form__input" type="hidden" data-input="submit" />
-                    <button class="btn btn--submit" type="submit">
+                    <button class="btn btn--submit" type="submit" name="submit">
                         <span class="btn__stack"></span>
                         <span class="btn__stack"></span>
                         <span class="btn__stack"></span>

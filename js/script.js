@@ -65,6 +65,7 @@ const init = () => {
     dropdownItem.forEach(item => {
         item.addEventListener('click', () => {
             dropdownInput.innerHTML = item.innerHTML;
+            document.querySelector('.form__input--gender-hidden').value = item.textContent;
         });
     });
 
